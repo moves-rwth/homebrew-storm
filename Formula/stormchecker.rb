@@ -19,7 +19,7 @@ class Stormchecker < Formula
     system "mkdir", "build"
     system "cd", "build"
     system "cmake", ".", "-DSTORM_DEVELOPER=OFF", "-DCMAKE_BUILD_TYPE=RELEASE", "-DCMAKE_INSTALL_PREFIX=#{prefix}", "-DSTORM_FORCE_SHIPPED_CARL=ON"
-    system "make", "install" # if this fails, try separate make/make install steps
+    system "make", "-j#{determine_make_jobs}", "install" # if this fails, try separate make/make install steps
   end
 
   test do
