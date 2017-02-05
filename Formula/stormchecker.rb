@@ -1,4 +1,4 @@
-class stormchecker < Formula
+class Stormchecker < Formula
   desc "Probabilistic Model Checker"
   homepage "https://moves-rwth.github.io/storm/"
   url "https://github.com/cdehnert/homebrew-storm/archive/master.tar.gz"
