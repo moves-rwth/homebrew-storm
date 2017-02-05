@@ -15,7 +15,7 @@ class Stormchecker < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
 
-    system "cmake", ".", "-DSTORM_DEVELOPER=OFF", "-DCMAKE_BUILD_TYPE=RELEASE", "-DCMAKE_INSTALL_PREFIX=#{prefix}", "-DSTORM_FORCE_SHIPPED_CARL"
+    system "cmake", ".", "-DSTORM_DEVELOPER=OFF", "-DCMAKE_BUILD_TYPE=RELEASE", "-DCMAKE_INSTALL_PREFIX=#{prefix}", "-DSTORM_FORCE_SHIPPED_CARL=ON"
     system "make", "install" # if this fails, try separate make/make install steps
   end
 
