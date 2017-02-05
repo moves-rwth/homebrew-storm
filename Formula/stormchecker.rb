@@ -2,8 +2,8 @@ class Stormchecker < Formula
   desc "Probabilistic Model Checker"
   homepage "https://moves-rwth.github.io/storm/"
   url "https://github.com/cdehnert/homebrew-storm/archive/master.tar.gz"
-  version ""
-  sha256 ""
+  version "0.10.1"
+  sha256 "ed20ce2e650df9f3bc59ce025d6019276f1e76a28ab77c4a8d114805854c9fab"
 
   depends_on "cmake"
   depends_on "boost"
