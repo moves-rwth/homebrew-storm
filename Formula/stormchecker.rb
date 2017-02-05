@@ -1,9 +1,9 @@
 class Stormchecker < Formula
   desc "Probabilistic Model Checker"
   homepage "https://moves-rwth.github.io/storm/"
-  url "https://github.com/cdehnert/homebrew-storm/archive/master.tar.gz"
+  url "https://github.com/moves-rwth/storm/archive/master.tar.gz"
   version "0.10.1"
-  sha256 "9f155ae3cef652502d7d0678b281ee4ac3797082091186e0389c64a45cf7a106"
+  sha256 "318da281c390b5c4fac7f3f45e1bd3b25239c69d9f11a1955cb1a9edc9d08cf4"
 
   depends_on "cmake"
   depends_on "boost"
@@ -15,6 +15,8 @@ class Stormchecker < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
 
+    system "mkdir", "build"
+    system "cd", "build"
     system "cmake", ".", "-DSTORM_DEVELOPER=OFF", "-DCMAKE_BUILD_TYPE=RELEASE", "-DCMAKE_INSTALL_PREFIX=#{prefix}", "-DSTORM_FORCE_SHIPPED_CARL=ON"
     system "make", "install" # if this fails, try separate make/make install steps
   end
