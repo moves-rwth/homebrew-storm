@@ -11,9 +11,10 @@ class Stormchecker < Formula
   depends_on "glpk"
   depends_on "cln"
   depends_on "ginac"
+  depends_on "automake"
 
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
+    ENV.deparallelize  # if your formula fails when building in parallel
 
     system "mkdir", "build"
     system "cd", "build"
