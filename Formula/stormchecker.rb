@@ -3,7 +3,7 @@ class Stormchecker < Formula
   homepage "https://moves-rwth.github.io/storm/"
   url "https://github.com/moves-rwth/storm/archive/master.tar.gz"
   version "0.10.1"
-  sha256 "152b2bff3eb567d904da7843b25b206dd1549933a1d50db6670ba9c6d7631a83"
+  sha256 "961dfac5bc413a0d404d1f325d9b1e73745e15068825763a62999a0f033c70ad"
 
   depends_on "cmake"
   depends_on "boost"
