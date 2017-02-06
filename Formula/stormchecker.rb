@@ -3,7 +3,7 @@ class Stormchecker < Formula
   homepage "https://moves-rwth.github.io/storm/"
   url "https://github.com/moves-rwth/storm/archive/master.tar.gz"
   version "0.10.1"
-  sha256 "961dfac5bc413a0d404d1f325d9b1e73745e15068825763a62999a0f033c70ad"
+  sha256 "a64d0f428de180b20e65bfa203ff16fe466f08f246de23743aa5aa83f7faf8ea"
 
   depends_on "cmake"
   depends_on "boost"
@@ -16,7 +16,18 @@ class Stormchecker < Formula
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
 
-    system "cmake", ".", "-DSTORM_DEVELOPER=OFF", "-DCMAKE_BUILD_TYPE=RELEASE", "-DCMAKE_INSTALL_PREFIX=#{prefix}", "-DSTORM_FORCE_SHIPPED_CARL=ON", "-DSTORM_SOURCE=archive", "-DSTORM_VERSION_MAJOR=0", "-DSTORM_VERSION_MINOR=9", "-DSTORM_VERSION_PATCH=0"
+    args = %w[
+      -DSTORM_DEVELOPER=OFF
+      -DSTORM_FORCE_SHIPPED_CARL=ON
+    ]
+    args << "-DCMAKE_BUILD_TYPE=RELEASE"
+    args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+    args << "-DSTORM_VERSION_MAJOR=0"
+    args << "-DSTORM_VERSION_MINOR=9"
+    args << "-DSTORM_VERSION_PATCH=0"
+    args << "-DSTORM_SOURCE=archive"
+
+    system "cmake", ".", *(std_cmake_args + args)
     system "make", "-j#{ENV.make_jobs}", "install" # if this fails, try separate make/make install steps
   end
 
