@@ -9,7 +9,7 @@ class Stormchecker < Formula
   option "with-single-thread", "Build storm using just one thread."
   option "with-tbb", "Build storm with Intel Thread Building Blocks (TBB) support."
 
-  depends_on :maxos => :mavericks
+  depends_on :macos => :mavericks
   depends_on "cmake"
   depends_on "boost"
   depends_on "z3"
