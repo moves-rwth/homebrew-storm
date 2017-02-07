@@ -32,13 +32,13 @@ class Stormchecker < Formula
     args << "-DSTORM_VERSION_PATCH=0"
     args << "-DSTORM_SOURCE=archive"
 
-    if build.with? "tbb"
+    if build.with?("tbb")
       depends_on "tbb" => %w{c++11}
       args << "-DSTORM_USE_INTELTBB=ON"
     end
 
     thread_count = Hardware::CPU.cores
-    thread_count = 1 if build.with? "single-thread"
+    thread_count = 1 if build.with?("single-thread")
 
     mktemp do
       system "cmake", buildpath, *(std_cmake_args + args)
