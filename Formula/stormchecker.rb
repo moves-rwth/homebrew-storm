@@ -4,7 +4,7 @@ class Stormchecker < Formula
   url "https://github.com/moves-rwth/storm/archive/master.tar.gz"
   version "0.10.1"
   sha256 "a64d0f428de180b20e65bfa203ff16fe466f08f246de23743aa5aa83f7faf8ea"
-  head "https://github.com/moves-rwth/storm.git" :using => :git
+  head "https://github.com/moves-rwth/storm.git", :using => :git
 
   depends_on "cmake"
   depends_on "boost"
