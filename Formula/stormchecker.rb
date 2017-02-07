@@ -16,7 +16,7 @@ class Stormchecker < Formula
   depends_on "xerces-c"
 
   option "with-single-thread", "Build storm using just one thread."
-  option "with-tbb", "Build storm with Intel Thread Building Blocks (TBB) support.
+  option "with-tbb", "Build storm with Intel Thread Building Blocks (TBB) support."
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
