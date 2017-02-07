@@ -6,6 +6,10 @@ class Stormchecker < Formula
   sha256 "592914aee8ada100be7796f6721813bb07c6c50a4fc436807722112ee7b78a73"
   head "https://github.com/moves-rwth/storm.git", :using => :git
 
+  option "with-single-thread", "Build storm using just one thread."
+  option "with-tbb", "Build storm with Intel Thread Building Blocks (TBB) support."
+
+  depends_on :maxos => :mavericks
   depends_on "cmake"
   depends_on "boost"
   depends_on "z3"
@@ -14,9 +18,7 @@ class Stormchecker < Formula
   depends_on "ginac"
   depends_on "automake"
   depends_on "xerces-c"
-
-  option "with-single-thread", "Build storm using just one thread."
-  option "with-tbb", "Build storm with Intel Thread Building Blocks (TBB) support."
+  depends_on "tbb" => [:optional, "c++11"]
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
