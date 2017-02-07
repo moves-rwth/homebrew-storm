@@ -1,8 +1,8 @@
 class Stormchecker < Formula
   desc "Probabilistic Model Checker"
   homepage "https://moves-rwth.github.io/storm/"
-  url "https://github.com/moves-rwth/storm/archive/master.tar.gz"
-  version "0.10.1"
+  url "https://github.com/moves-rwth/storm/archive/0.9.9.tar.gz"
+  version "0.9.9"
   sha256 "592914aee8ada100be7796f6721813bb07c6c50a4fc436807722112ee7b78a73"
   head "https://github.com/moves-rwth/storm.git", :using => :git
 
@@ -31,7 +31,7 @@ class Stormchecker < Formula
     args << "-DCMAKE_BUILD_TYPE=RELEASE"
     args << "-DSTORM_VERSION_MAJOR=0"
     args << "-DSTORM_VERSION_MINOR=9"
-    args << "-DSTORM_VERSION_PATCH=0"
+    args << "-DSTORM_VERSION_PATCH=9"
     args << "-DSTORM_SOURCE=archive"
 
     if build.with?("tbb")
