@@ -36,7 +36,7 @@ class Stormchecker < Formula
     mktemp do
       system "cmake", buildpath, *(std_cmake_args + args)
       system "make", "-j#{thread_count}", "install"
-      bin.install_symlink bin/"storm"
+#      bin.install_symlink bin/"storm"
     end
   end
 
