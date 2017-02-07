@@ -4,6 +4,7 @@ class Stormchecker < Formula
   url "https://github.com/moves-rwth/storm/archive/master.tar.gz"
   version "0.10.1"
   sha256 "a64d0f428de180b20e65bfa203ff16fe466f08f246de23743aa5aa83f7faf8ea"
+  head "https://github.com/moves-rwth/storm.git" :using => :git
 
   depends_on "cmake"
   depends_on "boost"
@@ -13,6 +14,8 @@ class Stormchecker < Formula
   depends_on "ginac"
   depends_on "automake"
 
+  option "with-threads", "Build storm using all cores."
+
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
 
@@ -21,14 +24,20 @@ class Stormchecker < Formula
       -DSTORM_FORCE_SHIPPED_CARL=ON
     ]
     args << "-DCMAKE_BUILD_TYPE=RELEASE"
-    args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+    # args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
     args << "-DSTORM_VERSION_MAJOR=0"
     args << "-DSTORM_VERSION_MINOR=9"
     args << "-DSTORM_VERSION_PATCH=0"
     args << "-DSTORM_SOURCE=archive"
 
-    system "cmake", ".", *(std_cmake_args + args)
-    system "make", "-j#{ENV.make_jobs}", "install" # if this fails, try separate make/make install steps
+    thread_count = 0
+    thread_count = Hardware::CPU.cores if build.with? "threads"
+
+    mktemp do
+      system "cmake", buildpath, *(std_cmake_args + args)
+      system "make", "-j#{thread_count}", "install"
+      bin.install_symlink bin/"storm"
+    end
   end
 
   test do
