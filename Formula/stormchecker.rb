@@ -3,7 +3,7 @@ class Stormchecker < Formula
   homepage "https://moves-rwth.github.io/storm/"
   url "https://github.com/moves-rwth/storm/archive/master.tar.gz"
   version "0.10.1"
-  sha256 "a64d0f428de180b20e65bfa203ff16fe466f08f246de23743aa5aa83f7faf8ea"
+  sha256 "592914aee8ada100be7796f6721813bb07c6c50a4fc436807722112ee7b78a73"
   head "https://github.com/moves-rwth/storm.git", :using => :git
 
   depends_on "cmake"
@@ -13,8 +13,10 @@ class Stormchecker < Formula
   depends_on "cln"
   depends_on "ginac"
   depends_on "automake"
+  depends_on "xerces-c"
 
-  option "with-threads", "Build storm using all cores."
+  option "with-single-thread", "Build storm using just one thread."
+  option "with-tbb", "Build storm with Intel Thread Building Blocks (TBB) support.
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
@@ -22,34 +24,29 @@ class Stormchecker < Formula
     args = %w[
       -DSTORM_DEVELOPER=OFF
       -DSTORM_FORCE_SHIPPED_CARL=ON
+      -DSTORM_USE_LTO=ON
     ]
     args << "-DCMAKE_BUILD_TYPE=RELEASE"
-    # args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
     args << "-DSTORM_VERSION_MAJOR=0"
     args << "-DSTORM_VERSION_MINOR=9"
     args << "-DSTORM_VERSION_PATCH=0"
     args << "-DSTORM_SOURCE=archive"
 
-    thread_count = 0
-    thread_count = Hardware::CPU.cores if build.with? "threads"
+    if build.with? "tbb"
+      depend_on "tbb" => %w{c++11}
+      args << "-DSTORM_USE_INTELTBB=ON"
+    end
+
+    thread_count = Hardware::CPU.cores
+    thread_count = 1 if build.with? "single-thread"
 
     mktemp do
       system "cmake", buildpath, *(std_cmake_args + args)
       system "make", "-j#{thread_count}", "install"
-#      bin.install_symlink bin/"storm"
     end
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! It's enough to just replace
-    # "false" with the main program this formula installs, but it'd be nice if you
-    # were more thorough. Run the test with `brew test homebrew-storm`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    shell_output("#{bin}/storm", 1)
   end
 end
