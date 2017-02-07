@@ -35,7 +35,6 @@ class Stormchecker < Formula
     args << "-DSTORM_SOURCE=archive"
 
     if build.with?("tbb")
-      depends_on "tbb" => %w{c++11}
       args << "-DSTORM_USE_INTELTBB=ON"
     end
 
