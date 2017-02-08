@@ -13,12 +13,12 @@ class Stormchecker < Formula
   depends_on "cmake"
   depends_on "boost"
   depends_on "z3"
-  depends_on "glpk"
   depends_on "cln"
   depends_on "ginac"
   depends_on "automake"
   depends_on "xerces-c"
   depends_on "tbb" => [:optional, "c++11"]
+  depends_on "homebrew/science/glpk"
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
