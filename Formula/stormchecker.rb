@@ -1,9 +1,9 @@
 class Stormchecker < Formula
   desc "Probabilistic Model Checker"
   homepage "https://moves-rwth.github.io/storm/"
-  url "https://github.com/moves-rwth/storm/archive/0.9.9.tar.gz"
-  version "0.9.9"
-  sha256 "a7a082a05f83538500b1a0b45fbfb60165f4623538bcbcec1edf33fce58656af"
+  url "https://github.com/moves-rwth/storm/archive/1.0.0.tar.gz"
+  version "1.0.0"
+  sha256 "679838a44392138159433e5fd084d8aa3bcc241d3a299f02ac4b89eb66ee8595"
   head "https://github.com/moves-rwth/storm.git", :using => :git
 
   option "with-single-thread", "Build storm using just one thread."
@@ -29,10 +29,6 @@ class Stormchecker < Formula
       -DSTORM_USE_LTO=ON
     ]
     args << "-DCMAKE_BUILD_TYPE=RELEASE"
-    args << "-DSTORM_VERSION_MAJOR=0"
-    args << "-DSTORM_VERSION_MINOR=9"
-    args << "-DSTORM_VERSION_PATCH=9"
-    args << "-DSTORM_SOURCE=archive"
 
     if build.with?("tbb")
       args << "-DSTORM_USE_INTELTBB=ON"
