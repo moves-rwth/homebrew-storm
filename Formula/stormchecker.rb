@@ -3,7 +3,8 @@ class Stormchecker < Formula
   homepage "https://moves-rwth.github.io/storm/"
   url "https://github.com/moves-rwth/storm/archive/1.0.1.tar.gz"
   version "1.0.1"
-  sha256 "114d53d6e84ea0427a896283517fa32fe8595b8f980b2eb0305e5fb8556ba0bf"
+  sha256 "845a1e3bc0ab04db0a6e86c71c8d0c7b73f8d83cd17d1102ae28e0316ee4e04d"
+
   head "https://github.com/moves-rwth/storm.git", :using => :git
 
   option "with-single-thread", "Build storm using just one thread."
