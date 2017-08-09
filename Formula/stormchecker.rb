@@ -1,9 +1,9 @@
 class Stormchecker < Formula
   desc "Probabilistic Model Checker"
   homepage "https://moves-rwth.github.io/storm/"
-  url "https://github.com/moves-rwth/storm/archive/1.0.1.tar.gz"
+  url "https://github.com/moves-rwth/storm/archive/stable.zip"
   version "1.0.1"
-  sha256 "845a1e3bc0ab04db0a6e86c71c8d0c7b73f8d83cd17d1102ae28e0316ee4e04d"
+  sha256 "12e4a00e516d71a20eb7483982f82e49f5459fe71ea8cf687a95e907a66de1ca"
 
   head "https://github.com/moves-rwth/storm.git", :using => :git
 
