@@ -1,5 +1,5 @@
 class Stormchecker < Formula
-  desc "Probabilistic Model Checker"
+  desc "A modern probabilistic model checker."
   homepage "https://moves-rwth.github.io/storm/"
   url "https://github.com/moves-rwth/storm/archive/stable.zip"
   version "1.1.0"
@@ -7,8 +7,8 @@ class Stormchecker < Formula
 
   head "https://github.com/moves-rwth/storm.git", :using => :git
 
-  option "with-single-thread", "Build storm using just one thread."
-  option "with-tbb", "Build storm with Intel Thread Building Blocks (TBB) support."
+  option "with-single-thread", "Build Storm using just one thread."
+  option "with-tbb", "Build Storm with Intel Thread Building Blocks (TBB) support."
 
   depends_on :macos => :mavericks
   depends_on "cmake"
@@ -29,7 +29,6 @@ class Stormchecker < Formula
     args = %w[
       -DSTORM_DEVELOPER=OFF
       -DSTORM_FORCE_SHIPPED_CARL=ON
-      -DSTORM_USE_LTO=ON
     ]
     args << "-DCMAKE_BUILD_TYPE=RELEASE"
 
