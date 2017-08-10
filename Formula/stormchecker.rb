@@ -20,8 +20,8 @@ class Stormchecker < Formula
   depends_on "automake"
   depends_on "xerces-c"
   depends_on "tbb" => [:optional, "c++11"]
-  depends_on "homebrew/science/glpk"
-  depends_on "homebrew/science/hwloc"
+  depends_on "glpk"
+  depends_on "hwloc"
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
