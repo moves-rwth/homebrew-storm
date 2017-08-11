@@ -16,7 +16,7 @@ class Stormchecker < Formula
   depends_on "z3"
   depends_on "automake"
   depends_on "xerces-c"
-  depends_on "tbb" => ["c++11"] if builds.with?("tbb")
+  depends_on "tbb" => ["c++11"] if build.with?("tbb")
   depends_on "glpk"
   depends_on "hwloc"
   depends_on "moves-rwth/misc/carl" => ["thread-safe", "cln", "ginac", "cocoa"]
