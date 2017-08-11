@@ -26,7 +26,7 @@ class Stormchecker < Formula
 
     args = %w[
       -DSTORM_DEVELOPER=OFF
-      -CMAKE_BUILD_TYPE=RELEASE
+      -DCMAKE_BUILD_TYPE=RELEASE
     ]    
     args << "-DSTORM_USE_INTELTBB=ON" if build.with?("tbb")
 
