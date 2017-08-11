@@ -28,7 +28,7 @@ class Stormchecker < Formula
       -DSTORM_DEVELOPER=OFF
       -CMAKE_BUILD_TYPE=RELEASE
     ]    
-    args << "-DSTORM_USE_INTELTBB=ON" if builds.with?("tbb")
+    args << "-DSTORM_USE_INTELTBB=ON" if build.with?("tbb")
 
     #thread_count = Hardware::CPU.cores
     #thread_count = 1 if build.with?("single-thread")
