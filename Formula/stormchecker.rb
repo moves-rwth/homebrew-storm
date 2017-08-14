@@ -22,16 +22,11 @@ class Stormchecker < Formula
   depends_on "moves-rwth/misc/carl" => ["thread-safe", "cln", "ginac", "cocoa"]
 
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
-
     args = %w[
       -DSTORM_DEVELOPER=OFF
       -DCMAKE_BUILD_TYPE=RELEASE
     ]    
     args << "-DSTORM_USE_INTELTBB=ON" if build.with?("tbb")
-
-    #thread_count = Hardware::CPU.cores
-    #thread_count = 1 if build.with?("single-thread")
 
     mktemp do
       system "cmake", buildpath, *(std_cmake_args + args)
