@@ -19,6 +19,7 @@ class Stormchecker < Formula
   depends_on "tbb" => ["c++11"] if build.with?("tbb")
   depends_on "glpk"
   depends_on "hwloc"
+  depends_on "moves-rwth/misc/cocoalib"
   depends_on "moves-rwth/misc/carl" => ["with-thread-safe", "with-cln", "with-ginac", "with-cocoalib"]
 
   def install
