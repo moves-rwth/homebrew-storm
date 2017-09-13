@@ -20,7 +20,7 @@ class Stormchecker < Formula
   depends_on "glpk"
   depends_on "hwloc"
   depends_on "moves-rwth/misc/cocoalib"
-  depends_on "moves-rwth/misc/carl" => ["with-thread-safe", "with-cln", "with-ginac", "with-cocoalib"]
+  depends_on "moves-rwth/misc/carl" => ["with-thread-safe", "with-cln", "with-ginac"]
 
   def install
     args = %w[
