@@ -21,7 +21,7 @@ class Stormchecker < Formula
   depends_on "glpk"
   depends_on "hwloc"
   depends_on "moves-rwth/misc/cocoalib" if build.with?("cocoalib")
-  depends_on "moves-rwth/misc/carl" => if build.with?("cocoalib") then ["with-thread-safe", "with-cln", "with-ginac"] else ["with-thread-safe", "with-cln", "with-ginac", "with-cocoalib"] end
+  depends_on "moves-rwth/misc/carl" => if build.with?("cocoalib") then ["with-thread-safe", "with-cln", "with-ginac", "with-cocoalib"] else ["with-thread-safe", "with-cln", "with-ginac"] end
 
   def install
     args = %w[
