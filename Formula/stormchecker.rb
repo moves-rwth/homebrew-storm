@@ -8,6 +8,7 @@ class Stormchecker < Formula
 
   # option "with-single-thread", "Build Storm using just one thread."
   option "with-tbb", "Build Storm with Intel Thread Building Blocks (TBB) support."
+  option "with-cocoalib", "Build with support for CoCoALib (also requires CArl to be built with support for CoCoALib)."
 
   depends_on :macos => :mavericks
   depends_on "cmake"
@@ -19,8 +20,8 @@ class Stormchecker < Formula
   depends_on "tbb" => ["c++11"] if build.with?("tbb")
   depends_on "glpk"
   depends_on "hwloc"
-  depends_on "moves-rwth/misc/cocoalib"
-  depends_on "moves-rwth/misc/carl" => ["with-thread-safe", "with-cln", "with-ginac"]
+  depends_on "moves-rwth/misc/cocoalib" if build.with?("cocoalib")
+  depends_on "moves-rwth/misc/carl" => if build.with?("cocoalib") then ["with-thread-safe", "with-cln", "with-ginac"] else ["with-thread-safe", "with-cln", "with-ginac", "with-cocoalib"] 
 
   def install
     args = %w[
