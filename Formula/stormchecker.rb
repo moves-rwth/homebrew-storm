@@ -16,7 +16,6 @@ class Stormchecker < Formula
   depends_on "gmp"
   depends_on "z3"
   depends_on "automake"
-  depends_on "autoconf"
   depends_on "xerces-c"
   depends_on "tbb" if build.with?("tbb")
   depends_on "glpk"
