@@ -20,7 +20,8 @@ class Stormchecker < Formula
   depends_on "xerces-c"
   depends_on "tbb" if build.with?("tbb")
   depends_on "glpk"
-  # depends_on "hwloc"
+  depends_on "hwloc"
+  depends_on "doxygen"
   depends_on "moves-rwth/misc/cocoalib" if build.with?("cocoalib")
   depends_on "moves-rwth/misc/carl" => build.with?("cocoalib") ? ["with-thread-safe", "with-cln", "with-ginac", "with-cocoalib"] : ["with-thread-safe", "with-cln", "with-ginac"]
 
