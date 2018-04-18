@@ -11,15 +11,16 @@ class Stormchecker < Formula
   option "with-cocoalib", "Build with support for CoCoALib (also requires CArl to be built with support for CoCoALib)."
 
   depends_on :macos => :mavericks
-  depends_on "cmake"
+  depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gmp"
   depends_on "z3"
-  depends_on "automake"
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
   depends_on "xerces-c"
   depends_on "tbb" if build.with?("tbb")
   depends_on "glpk"
-  depends_on "hwloc"
+  # depends_on "hwloc"
   depends_on "moves-rwth/misc/cocoalib" if build.with?("cocoalib")
   depends_on "moves-rwth/misc/carl" => build.with?("cocoalib") ? ["with-thread-safe", "with-cln", "with-ginac", "with-cocoalib"] : ["with-thread-safe", "with-cln", "with-ginac"]
 
