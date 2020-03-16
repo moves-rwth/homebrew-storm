@@ -1,9 +1,9 @@
 class Stormchecker < Formula
   desc "A modern probabilistic model checker"
   homepage "http://www.stormchecker.org"
-  url "https://github.com/moves-rwth/storm/archive/1.5.0.zip"
-  version "1.5.0"
-  sha256 "e1097ce785d4f8a626f73a551be6069e0459138f2c7f6265565352e15913d00b"
+  url "https://github.com/moves-rwth/storm/archive/1.5.1.zip"
+  version "1.5.1"
+  sha256 "570a5c9b11dbd32a41c55df605f7b05db53e8fbf16f157d1b4044ee1ba2951ca"
   head "https://github.com/moves-rwth/storm.git", :using => :git
 
   # option "with-single-thread", "Build Storm using just one thread."
