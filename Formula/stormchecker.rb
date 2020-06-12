@@ -18,7 +18,6 @@ class Stormchecker < Formula
   depends_on "glpk"
   depends_on "gmp"
   depends_on "hwloc"
-  depends_on :macos => :mavericks
   depends_on "moves-rwth/misc/carl" => build.with?("cocoalib") ? ["with-thread-safe", "with-cln", "with-ginac", "with-cocoalib"] : ["with-thread-safe", "with-cln", "with-ginac"]
   depends_on "xerces-c"
   depends_on "z3"
