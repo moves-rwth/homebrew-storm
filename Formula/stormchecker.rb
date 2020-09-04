@@ -1,9 +1,9 @@
 class Stormchecker < Formula
   desc "A modern probabilistic model checker"
   homepage "https://www.stormchecker.org"
-  url "https://github.com/moves-rwth/storm/archive/1.6.0.tar.gz"
-  version "1.6.0"
-  sha256 "f13b2baefcf16e649c27f75bd82c20f8ba61004aca671e30f3dbf61eebff498b"
+  url "https://github.com/moves-rwth/storm/archive/1.6.2.tar.gz"
+  version "1.6.2"
+  sha256 "8b8db742aaf72b035de52e6b683071eb67d1de1110e10f8068149e1b01378538"
   head "https://github.com/moves-rwth/storm.git", :using => :git
 
   # option "with-single-thread", "Build Storm using just one thread."
@@ -29,6 +29,7 @@ class Stormchecker < Formula
       -DSTORM_DEVELOPER=OFF
       -DCMAKE_BUILD_TYPE=RELEASE
       -DSTORM_COMPILE_WITH_CCACHE=OFF
+      -DSTORM_EXCLUDE_TESTS_FROM_ALL=ON
     ]
     args << "-DSTORM_USE_INTELTBB=ON" if build.with?("tbb")
 
