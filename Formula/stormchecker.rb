@@ -9,6 +9,7 @@ class Stormchecker < Formula
   # option "with-single-thread", "Build Storm using just one thread."
   option "with-tbb", "Build Storm with Intel Thread Building Blocks (TBB) support."
   option "with-cocoalib", "Build with support for CoCoALib (also requires CArl to be built with support for CoCoALib)."
+  option "with-spot", "Build Storm with Spot (required for LTL model checking)."
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -22,6 +23,7 @@ class Stormchecker < Formula
   depends_on "xerces-c"
   depends_on "z3"
   depends_on "moves-rwth/misc/cocoalib" => :optional
+  depends_on "spot" => :optional
   depends_on "tbb" => :optional
 
   def install
