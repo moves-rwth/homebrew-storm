@@ -17,7 +17,12 @@ class Stormchecker < Formula
   depends_on "glpk"
   depends_on "gmp"
   depends_on "hwloc"
-  depends_on "moves-rwth/misc/carl-storm" => ["with-cln", "with-ginac"]
+  on_intel do
+    depends_on "moves-rwth/misc/carl-storm" => ["with-cln", "with-ginac"]
+  end
+  on_arm do
+    depends_on "moves-rwth/misc/carl-storm"
+  end
   depends_on "xerces-c"
   depends_on "z3"
   depends_on "spot" => :optional
