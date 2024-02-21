@@ -1,11 +1,12 @@
 class CarlStorm < Formula
   desc "Computer ARithmetic and Logic library for the probabilistic model checker Storm"
-  homepage "https://ths-rwth.github.io/carl/"
-  url "https://github.com/moves-rwth/carl-storm/archive/refs/tags/14.25.tar.gz"
-  version "14.25"
-  sha256 "511740d53c2a6a41c3ccb3bd3b2d9ec89d0576f37b8804fc15fbe083e7a357da"
+  homepage "https://github.com/moves-rwth/carl-storm/"
+  # version is extracted from url
+  url "https://github.com/moves-rwth/carl-storm/archive/refs/tags/14.27.tar.gz"
+  sha256 "7c43d1d125ce4c1b05d0f06b7a47950b83b6c2d6331d85580c06582bd1d18f84"
+  license "MIT"
 
-  head "https://github.com/moves-rwth/carl-storm.git", using: :git
+  head "https://github.com/moves-rwth/carl-storm.git", branch: "master", using: :git
 
   depends_on "boost"
   depends_on "cmake"
