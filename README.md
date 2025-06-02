@@ -1,13 +1,13 @@
-# Installing storm via homebrew
+# Installing Storm via homebrew
 
-This tap provides the formula to install storm via homebrew. All you need to do is
+This tap provides the formula to install Storm via homebrew. All you need to do is
 
 ```sh
 brew tap moves-rwth/storm
 brew install stormchecker
 ``` 
 
-For more options when installing storm, please invoke
+For more options when installing Storm, please invoke
 
 ```sh
 brew info stormchecker 
@@ -15,10 +15,10 @@ brew info stormchecker
 
 after tapping this repository.
 
-After the installation, you should be able to invoke storm by just typing
+After the installation, you should be able to invoke Storm by just typing
 
 ```sh
 storm
 ```
 
-For instructions on how to use storm, we refer to [storm's website](https://moves-rwth.github.io/storm/).
+For instructions on how to use Storm, we refer to [Storm's website](https://www.stormchecker.org).
