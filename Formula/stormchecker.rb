@@ -2,8 +2,8 @@ class Stormchecker < Formula
   desc "A modern probabilistic model checker"
   homepage "https://www.stormchecker.org"
   # version is extracted from url
-  url "https://github.com/moves-rwth/storm/archive/refs/tags/1.10.0.tar.gz"
-  sha256 "a9ce10666dfcb383a1ee04ac7e57d0a67a9dba681eee6c51358b5767ad6bab7d"
+  url "https://github.com/moves-rwth/storm/archive/refs/tags/1.11.0.tar.gz"
+  sha256 "ea0d54fc5e7186f50d794174276134942bdbfcf13f62a9d12a6495ce88f9b953"
   license "GPL-3.0-only"
   head "https://github.com/moves-rwth/storm.git", using: :git, branch: "master"
 
@@ -30,7 +30,7 @@ class Stormchecker < Formula
     args = %w[
       -DCMAKE_BUILD_TYPE=RELEASE
       -DSTORM_COMPILE_WITH_CCACHE=OFF
-      -DSTORM_EXCLUDE_TESTS_FROM_ALL=ON
+      -DSTORM_BUILD_TESTS=OFF
     ]
     args << "-DSTORM_USE_INTELTBB=ON" if build.with?("tbb")
 
