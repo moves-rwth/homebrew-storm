@@ -40,9 +40,12 @@ jobs:
           xcode-version: ${{ matrix.config.xcode }}
       - name: Git clone
         uses: actions/checkout@v6
-      - name: Build Storm from Homebrew formula
+      - name: Update homebrew
         run: |
           brew update
+          brew upgrade
+      - name: Build Storm from Homebrew formula
+        run: |
           brew install -v --build-from-source ./Formula/stormchecker.rb
       - name: Run Storm
         run: storm --version | grep 'with flags .* -O3'
