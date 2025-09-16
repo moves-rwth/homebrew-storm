@@ -16,6 +16,7 @@ jobs:
   build:
     name: Build Tests (${{ matrix.config.name }}, ${{ matrix.config.buildType }})
     strategy:
+      fail-fast: false
       matrix:
         config:
           - {name: "XCode 14.3, Intel",
