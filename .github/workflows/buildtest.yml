@@ -39,7 +39,7 @@ jobs:
         with:
           xcode-version: ${{ matrix.config.xcode }}
       - name: Git clone
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Build Storm from Homebrew formula
         run: |
           brew update
