@@ -22,6 +22,7 @@ class Stormchecker < Formula
   depends_on "hwloc"
   depends_on "xerces-c"
   depends_on "z3"
+  depends_on "libarchive"
   depends_on "spot" => :optional
   depends_on "tbb" => :optional
 
