@@ -2,8 +2,8 @@ class Stormchecker < Formula
   desc "A modern probabilistic model checker"
   homepage "https://www.stormchecker.org"
   # version is extracted from url
-  url "https://github.com/moves-rwth/storm/archive/refs/tags/1.11.0.tar.gz"
-  sha256 "ea0d54fc5e7186f50d794174276134942bdbfcf13f62a9d12a6495ce88f9b953"
+  url "https://github.com/moves-rwth/storm/archive/refs/tags/1.12.0.tar.gz"
+  sha256 "7bfda9c2f8189391c1fe37893bb5b4a36642fca6aebc3d4fa7db5574f5ed8f5b"
   license "GPL-3.0-only"
   head "https://github.com/moves-rwth/storm.git", using: :git, branch: "master"
 
@@ -20,9 +20,9 @@ class Stormchecker < Formula
   depends_on "glpk"
   depends_on "gmp"
   depends_on "hwloc"
+  depends_on "libarchive"
   depends_on "xerces-c"
   depends_on "z3"
-  depends_on "libarchive"
   depends_on "spot" => :optional
   depends_on "tbb" => :optional
 
