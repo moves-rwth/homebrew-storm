@@ -19,26 +19,28 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {name: "XCode 14.3, Intel",
-             distro: "macos-13",
-             xcode: "14.3",
-             buildType: "Release"
-            }
-          - {name: "XCode 15.4, ARM",
+          - {name: "macOS 14, ARM",
              distro: "macos-14",
-             xcode: "15.4",
              buildType: "Release"
             }
-          - {name: "XCode 16.3, ARM",
+          - {name: "macOS 15, ARM",
              distro: "macos-15",
-             xcode: "16.3",
+             buildType: "Release"
+            }
+          - {name: "macOS 15, Intel",
+             distro: "macos-15-intel",
+             buildType: "Release"
+            }
+          - {name: "macOS 26, ARM",
+             distro: "macos-26",
+             buildType: "Release"
+            }
+          - {name: "macOS 26, Intel",
+             distro: "macos-26-intel",
              buildType: "Release"
             }
     runs-on: ${{ matrix.config.distro }}
     steps:
-      - uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: ${{ matrix.config.xcode }}
       - name: Git clone
         uses: actions/checkout@v6
       - name: Update homebrew
