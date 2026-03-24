@@ -16,7 +16,6 @@ jobs:
   build:
     name: Build Tests (${{ matrix.config.name }}, ${{ matrix.config.buildType }})
     strategy:
-      fail-fast: false
       matrix:
         config:
           - {name: "macOS 14, ARM",
@@ -47,8 +46,14 @@ jobs:
         run: |
           brew update
           brew upgrade
+      - name: Set up tap
+        run: brew tap "${{ github.repository_owner }}/storm" .
+      - name: Audit formula
+        run: brew audit --strict --new --online stormchecker
       - name: Build Storm from Homebrew formula
         run: |
-          brew install -v --build-from-source ./Formula/stormchecker.rb
+          brew install -v --build-from-source stormchecker
+      - name: Run test
+        run: brew test stormchecker
       - name: Run Storm
-        run: storm --version | grep 'with flags .* -O3'
+        run: storm --version
