@@ -42,17 +42,12 @@ jobs:
     steps:
       - name: Git clone
         uses: actions/checkout@v6
-      - name: Update homebrew
-        run: |
-          brew update
-          brew upgrade
-      - name: Set up tap
-        run: brew tap "${{ github.repository_owner }}/storm" .
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@main
       - name: Audit formula
         run: brew audit --strict --new --online stormchecker
       - name: Build Storm from Homebrew formula
-        run: |
-          brew install -v --build-from-source stormchecker
+        run: brew install -v --build-from-source stormchecker
       - name: Run test
         run: brew test stormchecker
       - name: Run Storm
