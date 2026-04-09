@@ -4,7 +4,7 @@ class Stormchecker < Formula
   url "https://github.com/stormchecker/storm/archive/refs/tags/1.12.0.tar.gz"
   sha256 "7bfda9c2f8189391c1fe37893bb5b4a36642fca6aebc3d4fa7db5574f5ed8f5b"
   license "GPL-3.0-only"
-  head "https://github.com/moves-rwth/storm.git", using: :git, branch: "master"
+  head "https://github.com/stormchecker/storm.git", using: :git, branch: "master"
 
   depends_on "automake" => :build
   depends_on "cmake" => :build
