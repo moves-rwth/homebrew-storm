@@ -43,6 +43,8 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@main
+      - name: Untap original repo
+        run: brew untap moves-rwth/storm
       - name: Set up tap
         run: brew tap-new "local-tmp/storm"
       - name: Copy formula
