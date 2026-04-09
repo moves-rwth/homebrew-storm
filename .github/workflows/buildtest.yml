@@ -40,12 +40,9 @@ jobs:
             }
     runs-on: ${{ matrix.config.distro }}
     steps:
-      - name: Git clone
-        uses: actions/checkout@v6
-      - name: Update homebrew
-        run: |
-          brew update
-          brew upgrade
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
       - name: Set up tap
         run: brew tap "${{ github.repository_owner }}/storm" .
       - name: Audit formula
