@@ -44,13 +44,11 @@ jobs:
         uses: actions/checkout@v6
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@main
-      - name: Tap this repository
-        run: brew tap moves-rwth/storm "$GITHUB_WORKSPACE"
       - name: Audit formula
-        run: brew audit --strict --new --online moves-rwth/storm/stormchecker
+        run: brew audit --strict --new --online stormchecker
       - name: Build Storm from Homebrew formula
-        run: brew install -v --build-from-source moves-rwth/storm/stormchecker
+        run: brew install -v --build-from-source stormchecker
       - name: Run test
-        run: brew test moves-rwth/storm/stormchecker
+        run: brew test stormchecker
       - name: Run Storm
         run: storm --version
