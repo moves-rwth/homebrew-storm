@@ -40,21 +40,16 @@ jobs:
             }
     runs-on: ${{ matrix.config.distro }}
     steps:
+      - uses: actions/checkout@v4
       - name: Set up Homebrew
-        id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@main
-      - name: Untap original repo
-        run: brew untap moves-rwth/storm
-      - name: Set up tap
-        run: brew tap-new "local-tmp/storm"
-      - name: Copy formula
-        run: cp Formula/stormchecker.rb "$(brew --repo local-tmp/storm)/Formula/"
+      - name: Tap this repository
+        run: brew tap stormchecker/storm "$GITHUB_WORKSPACE"
       - name: Audit formula
-        run: brew audit --strict --new --online local-tmp/storm/stormchecker
+        run: brew audit --strict --new --online stormchecker/storm/stormchecker
       - name: Build Storm from Homebrew formula
-        run: |
-          brew install -v --build-from-source local-tmp/storm/stormchecker
+        run: brew install -v --build-from-source stormchecker/storm/stormchecker
       - name: Run test
-        run: brew test local-tmp/storm/stormchecker
+        run: brew test stormchecker/storm/stormchecker
       - name: Run Storm
         run: storm --version
