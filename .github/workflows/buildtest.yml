@@ -44,13 +44,15 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@main
       - name: Set up tap
-        run: brew tap "${{ github.repository_owner }}/storm" .
+        run: brew tap-new "local-tmp/storm"
+      - name: Copy formula
+        run: cp Formula/stormchecker.rb "$(brew --repo local-tmp/storm)/Formula/"
       - name: Audit formula
-        run: brew audit --strict --new --online stormchecker
+        run: brew audit --strict --new --online local-tmp/storm/stormchecker
       - name: Build Storm from Homebrew formula
         run: |
-          brew install -v --build-from-source stormchecker
+          brew install -v --build-from-source local-tmp/storm/stormchecker
       - name: Run test
-        run: brew test stormchecker
+        run: brew test local-tmp/storm/stormchecker
       - name: Run Storm
         run: storm --version
