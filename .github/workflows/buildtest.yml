@@ -43,7 +43,7 @@ jobs:
     runs-on: ${{ matrix.config.distro }}
     steps:
       - name: Git clone
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@main
 
@@ -60,7 +60,7 @@ jobs:
 
       # Test by building starter project
       - name: Checkout starter project
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: stormchecker/storm-project-starter-cpp
           path: storm-starter
