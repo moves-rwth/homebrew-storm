@@ -7,12 +7,12 @@ class Stormchecker < Formula
   head "https://github.com/stormchecker/storm.git", using: :git, branch: "master"
 
   bottle do
-    root_url "https://github.com/moves-rwth/homebrew-storm/releases/download/stormchecker-1.13.0"
-    sha256 cellar: :any,                 arm64_tahoe:   "8cb9384e08b2fedf0f7248e67aff657a551d67b8e39656975e4e13d8c662c988"
-    sha256 cellar: :any,                 arm64_sequoia: "3971d9a0719882e90972fb7d4808fc65bb53ea4f01c40769890b5a3fc2cff2a6"
-    sha256 cellar: :any,                 arm64_sonoma:  "3c175a62a2c6523d7517686a6562e1b71942a70cdbe9e402c19bf9fd92d72f7c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "ccc22618bed8965ffcab8769883b8c93c21179fa53ea713b7d77c0fdfcf5a205"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7079b7672c30f1092b706efd476861409fce12bcbdfda2c608f6a835437d6e48"
+    root_url "https://github.com/moves-rwth/homebrew-storm/releases/download/stormchecker-1.14.0"
+    sha256 cellar: :any, arm64_tahoe:   "b494ce4e4f2d5bb74b7a9459318777d26be17c7f207d364f94eeb3ce190a437a"
+    sha256 cellar: :any, arm64_sequoia: "6f60bfde155499e0d4e7b438b58588e79c9424ea8a5d5125c31c36c2ce970466"
+    sha256 cellar: :any, arm64_sonoma:  "5b5c9401a7305b301a94fdf79bd76a67c0bd98e9160d3bf51a40e4b4a9380fd5"
+    sha256 cellar: :any, arm64_linux:   "83d9509a73e7f19576e21be3d7255156147f792dfeb8b30efa8956383d0df2ed"
+    sha256 cellar: :any, x86_64_linux:  "887824f0844d9e141bb5a1e6dd9c52905ea2df358edb1c4bc03a80f175dc5df0"
   end
 
   depends_on "automake" => :build
